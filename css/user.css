@@ -1,67 +1,14 @@
-img#myprofilepicture{
-	border: grey 2px solid;
-	width: 200px;
-	height: 200px;
+html, body{
+	padding: 0;
+	margin: 0;
 }
 
-#userdetailsbox{
-	text-align: left;
+#mainSection{
+	background: skyblue;
+	min-height: 400px;
 }
 
-div#profile_pic_box{ 		/*this will be used for the friends.. but later convert to bootstrap*/
-	border:#999 2px solid;
-	width:200px;
- 	height:200px; 
- 	margin:20px 30px 0px 0px; 
- 	overflow-y:hidden;
- 	background-image: url("images/laravel.png");
+#mainContainer{
+	border: 1px solid black;
+	width: 900px;
 }
-
-div#profile_pic_box > img{
-	z-index:2000; 
-	width:200px;
-
-}
-
-div#profile_pic_box > a {  /* i have to apply this to the bootstrap of the user profile picure:*/
-	display: none;
-	position:absolute; 
-	margin:140px 0px 0px 120px;
-	z-index:4000;
-	background:#D8F08E;
-	border:#81A332 1px solid;
-	border-radius:3px;
-	padding:5px;
-	font-size:12px;
-	text-decoration:none;
-	color:#60750B;
-
-}/*
-div#profile_pic_box > form{
-	display:none;
-	position:absolute; 
-	z-index:3000;
-	padding:10px;
-	opacity:.8;
-	background:#F0FEC2;
-	width:180px;
-	height:180px;*/
-}
-div#profile_pic_box:hover a {
-    display: block;
-
-}
-
-/*
-div#photo_showcase{float:right; background:url(style/photo_showcase_bg.jpg) no-repeat; width:136px; height:127px; margin:20px 30px 0px 0px; cursor:pointer;}
-div#photo_showcase > img{width:74px; height:74px; margin:37px 0px 0px 9px;}
-img.friendpics{border:#000 1px solid; width:40px; height:40px; margin:2px;}*/
-
-/*textarea#statustext{width:982px; height:80px; padding:8px; border:#999 1px solid; font-size:16px;}*/
-/*div.status_boxes{padding:12px; line-height:1.5em;}
-div.status_boxes > div{padding:8px; border:#99C20C 1px solid; background: #F4FDDF;}
-div.status_boxes > div > b{font-size:12px;}*/
-/*div.status_boxes > button{padding:5px; font-size:12px;}*/
-/*textarea.replytext{width:98%; height:40px; padding:1%; border:#999 1px solid;}*/
-div.reply_boxes{padding:12px; border:#999 1px solid; background:#F5F5F5;}
-div.reply_boxes > div > b{font-size:14px;}

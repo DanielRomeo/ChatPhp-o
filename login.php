@@ -134,63 +134,38 @@
 	</script>
 </head>
 <body>
-	<!-- Beginning of Body-->
 
-		<!--Navigation-->
-		<div id="thenavbartop" class="navbar navbar-inverse navbar-static-top">
-			<div class="container">
-				
-				<a class="navbar-brand navbar-pull-left" href="#">MacBaseChat</a>
-			</div>
-		</div>
-		<!--End Navigation-->
 
-		<!--Beginning of jumbotron/section-->
-		<div class="container">
+	<!-- Beginning of form-->
 
-			<h2>Login to MACBASECHAT</h2>
+	<form id="loginform" name="loginform" class="form-signin" onsubmit="return false;">
 
-			<form id="loginform" class="form-horizontal" name="loginform" onsubmit="return false;">
+		<img class="mb-4" src="images/macbaselogo.png" alt="" width="130" height="130">
 
-				<!--Username-->
-				<div class="form-group">			
-					<label for="" class="col-md-2 control-label">Enter Email:</label>
-					<div class="col-md-6">
-						<input id="email" onfocus="emptyElement('status')" type="text" class="form-control" placeholder="Email" maxlength="88" />	
-					</div>		
-				</div>	
+		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-				<div class="form-group">			
-					<label for="requestquote-name" class="col-md-2 control-label">Enter Password:</label>
-					<div class="col-md-6">
-						<input id="password" onfocus="emptyElement('status')" type="password" class="form-control" placeholder="Password" maxlength="100" />	
-					</div>		
-				</div>	
+		<span id="status"></span>
 
-				<a id="loginbtn" onclick="login()" class="btn btn-success">Login</a>
-				
-				<a href="signup.php" class="btn btn-default">Create new account</a>
-				<p id="status"></p>
+		<label for="inputEmail" class="sr-only">Email address</label>
+		<input id="email" onfocus="emptyElement('status')" type="text" class="form-control" placeholder="Email" maxlength="88" required autofocus>
 
-				<a href="Forgot_pass.php" class="btn btn-info"> Forgot Your Password? Click Me</a>
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input id="password" onfocus="emptyElement('status')" type="password" class="form-control" placeholder="Password" maxlength="100" required>
 
-				<span id="status"></span>
-			</form>
+		<div class="checkbox mb-3">
+			<label>
+				<input type="checkbox" value="remember-me"> Remember me
+			</label>
 		</div>
 
-		<!--Beginning of Footer-->
-		<div id="thenavbarbottom" class="navbar navbar-inverse navbar-fixed-bottom">
+		<button id="loginbtn" onclick="login();" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		<p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+	</form>
+		
 
-		<div class="container">
-			<h2 class="navbar-brand navbar pull-right">MacBaseChat</h2>
-			<!--<a class="navbar-btn btn-danger btn pull-right" id="navbb" href="#">Subscribe to my Youtube Channel</a>-->
-			<div class="navbar-text pull-left">
-				<p>Website designed and Written by <a href="#">Daniel Mamphekgo</a></p>
-			</div>	
-		</div>	
-	
-	<!--End of Footer-->
-	<!--End of body-->	
+		
+
+		
 
 	<script type="text/javascript" src="js/jquerylibrary.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script>

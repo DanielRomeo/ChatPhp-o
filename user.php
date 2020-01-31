@@ -47,14 +47,53 @@
 <html>
 <head>
 	<title>MacbaseChat:</title>
+	<?php include_once("templates/head.php"); ?>
+	<link rel="stylesheet" type="text/css" href="css/user.css">
 </head>
 <body>
 
-	<h3>hello</h3>
+	<!-- <h3>hello</h3>
 
-	<h4>Page of <?php echo $profileName ?></h4>
-	<a href="logout.php" class="btn btn-default">Logout</a>
+	<h4>Page of </h4>
+	<a href="logout.php" class="btn btn-default">Logout</a> -->
 
+	<!-- Image and text -->
+	<nav class="navbar navbar-light bg-light">
+	  <a class="navbar-brand" href="#">
+	    <img src="images/macbaselogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	    Bootstrap
+	  </a>
+	  <li class="nav-item active">
+        <a class="nav-link" href="#">Logout <span class="sr-only"></span></a>
+      </li>
+	</nav>
+
+	<div id="mainSection">
+
+
+
+		<div id="mainContainer" class="container">
+		
+			<div class="row">
+
+				<div class="col-lg-4">
+					<img class="mb-4" src="images/macbaselogo.png" class="img-thumbnail" width="130" height="130">
+				</div>
+
+				<div>
+					<h4><?php echo strtoupper($profileName) ?></h4>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	
+
+	<script type="text/javascript" src="js/jquerylibrary.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+	<?php include_once("templates/footer.php"); ?>
 </body>
 </html>
 
