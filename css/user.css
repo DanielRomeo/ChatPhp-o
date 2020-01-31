@@ -4,11 +4,15 @@ html, body{
 }
 
 #mainSection{
-	background: skyblue;
 	min-height: 400px;
+}
 }
 
 #mainContainer{
 	border: 1px solid black;
 	width: 900px;
+}
+
+#profileButton{
+	width: 100%;
 }
