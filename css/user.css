@@ -6,7 +6,7 @@ html, body{
 #mainSection{
 	min-height: 400px;
 }
-}
+
 
 #mainContainer{
 	border: 1px solid black;
@@ -24,3 +24,12 @@ html, body{
 	text-decoration: none;
 	color: black;
 }
+#statusesFriendsLastLogin>div{
+	width: 100;
+	text-align: center;
+}
+.jumbotronNumber{
+	font-weight: bold;
+	font-size: 25px;
+}
+

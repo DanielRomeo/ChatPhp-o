@@ -57,13 +57,21 @@
 	<!-- start of the navigation -->
 
 	 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 mr-md-auto font-weight-normal">@<?php echo $username; ?></h5>
+      <h5 class="my-0 mr-md-auto font-weight-normal">Hello <?php echo $firstName.' '.$lastName; ?></h5>
       <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#"><i class="far fa-bell"></i></a>
-        <a class="p-2 text-dark" href="#"><i class="fas fa-user-friends"></i></a>
-        <a class="p-2 text-dark" href="#"><i class="fas fa-cog"></i></a>
+
+      	<!-- notifications modal -->
+        <a data-toggle="modal" data-target="#exampleModalLong" class="p-2 text-dark" href="#"><i class="far fa-bell"></i></a>
+
+        <!-- link that moves you to friends.php -->
+        <a class="p-2 text-dark" href="friends.php?u=<?php echo $_SESSION['username'] ?>"> <i class="fas fa-user-friends"></i></a>
+
+        <!-- settings button that lets you  -->
+        <!-- <a class="p-2 text-dark" href="#"><i class="fas fa-cog"></i></a> -->
       </nav>
-      <a class="btn btn-outline-primary" href="#">Logout</a>
+
+      <a class="btn btn-outline-primary" href="logout.php">Logout</a>
+
     </div>
 	<!-- end of the navigation -->
 
@@ -83,7 +91,17 @@
 						<h4 class="display-4"><?php echo strtoupper($firstName).' '.strtoupper($lastName) ?></h4>
 
 						<!-- here goes the profile button: -->
-						<a id="profileButton" href="" class="btn btn-primary">Edit Profile</a>
+
+						<?php
+							// render the profile button but make sure the right button is rendered
+
+							if($_SESSION['username'] == $_GET['u']){
+								echo '<a id="profileButton" href="" class="btn btn-primary">Edit Profile</a>';
+							}else if($_SESSION['username'] != $_GET['u']){ /* if its not a friend but some random person*/
+								echo '<a id="profileButton" href="" class="btn btn-outline-dark">Send Friend Request</a>';
+							}
+						?>
+						
 
 						<br /> <br>
 
@@ -102,18 +120,18 @@
 				<hr class="my-4">
 				
 				<!-- statuses, friends and last login -->
-				<div class="row">
+				<div id="statusesFriendsLastLogin" class="row">
 					<div class="col-md-4">
-						hello
-						<!-- number of statuses -->
+						<p>STATUSES</p>	
+						<p class="jumbotronNumber">119</p>
 					</div>	
 					<div class="col-md-4">
-						hello
-						<!-- number of friends -->
+						<p>FRIENDS</p>	
+						<p class="jumbotronNumber">119</p>
 					</div>	
 					<div class="col-md-4">
-						hello
-						<!-- last login date: -->
+						<p>LAST LOGIN</p>	
+						<p class="jumbotronNumber">2020/08/03</p>
 					</div>	
 				</div>
 
@@ -145,10 +163,51 @@
 		
 	</div>
 
-	
+	<!-- Modal__________________________________________________________ -->
 
-	<script type="text/javascript" src="js/jquerylibrary.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">Your Notifications</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+
+	      <div class="modal-body">
+	        <div class="container-fluid">
+
+	        	<?php
+
+	        		echo "Notifications for ".$_SESSION['username'];
+
+	        	?>
+
+
+	        	<p>
+	        		<a href="">Sam</a> Sent you a friend request <a href="">Accept</a> or <a href="">Reject</a>
+	        	</p>
+
+	        	<p>
+	        		<a href="">Sam</a> Uploaded a new status 
+	        	</p>
+
+	        	<p>
+	        		<a href="">Sam</a> Sent you a new <a href="">Message</a>
+	        	</p>
+	        </div>
+	      </div>
+
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close Modal</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- end of Modal ------------------------------------------------------------------------ -->
+
+	
 
 	<?php include_once("templates/footer.php"); ?>
 </body>

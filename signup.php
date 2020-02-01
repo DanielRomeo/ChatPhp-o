@@ -291,21 +291,6 @@ session_start();
 
 
 
-	<!--Beginning of Footer-->
-	<div id="thenavbarbottom" class="navbar navbar-default navbar-fixed-bottom">
-
-		<div class="container">
-			<h2 class="navbar-brand navbar pull-right">MacBaseChat</h2>
-			<!--<a class="navbar-btn btn-danger btn pull-right" id="navbb" href="#">Subscribe to my Youtube Channel</a>-->
-			<div class="navbar-text pull-left">
-				<p>Website designed and Written by <a href="#">Daniel Mamphekgo</a></p>
-			</div>	
-		</div>	
-	</div>
-	<!--End of Footer-->
-	
-	<script type="text/javascript" src=""></script>
-	<script type="text/javascript" src="js/jquerylibrary.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<?php include_once("templates/footer.php"); ?>	
 </body>
 </html>
