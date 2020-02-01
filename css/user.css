@@ -16,3 +16,11 @@ html, body{
 #profileButton{
 	width: 100%;
 }
+
+#deleteStatusIcon{
+	color: red;
+}
+#likeStatusIcon{
+	text-decoration: none;
+	color: black;
+}

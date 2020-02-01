@@ -55,15 +55,16 @@
 <body>
 
 	<!-- start of the navigation -->
-	<nav class="navbar navbar-light bg-light">
-	  <a class="navbar-brand" href="#">
-	    <img src="images/macbaselogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-	    @<?php echo $username; ?>
-	  </a>
-	  <li class="nav-item active">
-        <a class="nav-link" href="#">Logout <span class="sr-only"></span></a>
-      </li>
-	</nav>
+
+	 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">@<?php echo $username; ?></h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#"><i class="far fa-bell"></i></a>
+        <a class="p-2 text-dark" href="#"><i class="fas fa-user-friends"></i></a>
+        <a class="p-2 text-dark" href="#"><i class="fas fa-cog"></i></a>
+      </nav>
+      <a class="btn btn-outline-primary" href="#">Logout</a>
+    </div>
 	<!-- end of the navigation -->
 
 	<div id="mainSection" class="container">
@@ -118,6 +119,28 @@
 
 			</div> <!-- end of mainContainer-->
 		</div><!-- end of jumbotron-->
+
+		<div class="container">
+			<h1 class="display-6">STATUSES</h1>
+
+			<div class="card">
+				<div class="card-body">
+					<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				
+					<hr>
+				
+					<p>
+						<a id="likeStatusIcon" href=""> <i class="fas fa-thumbs-up"> </i> </a>200 &nbsp;&nbsp;
+						<a href=""> <i id="deleteStatusIcon" class="fas fa-trash-alt"></i>  </a>
+					</p>
+				</div>
+			</div>
+		</div>
 
 		
 	</div>
