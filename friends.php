@@ -154,7 +154,7 @@
 	</div> <!-- end of the main section-->
 
 
-	<?php include_once("templates/footer.php"); ?>
+	<?php //include_once("templates/footer.php"); ?>
 </body>
 </html>
 

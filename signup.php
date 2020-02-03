@@ -180,70 +180,58 @@ session_start();
 <head>
 	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="css/signup.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/ajax.js"></script>
-	<script type="text/javascript" src="js/jquerylibrary.js"></script>
 	<script type="text/javascript" src="js/signup.js"></script>
-
-	<script type="text/javascript">
-		
-	</script>
+	<?php include_once("templates/head.php"); ?>
 </head>
 <body>
 
-	<!--Navigation-->
-	<div id="thenavbartop" class="navbar navbar-inverse navbar-static-top">
-		<div class="container">
-			
-			<a class="navbar-brand navbar-pull-left" href="#">MacBaseChat</a>
-		</div>
-	</div>
+	<!-- mini header -->
+	<h1 class="display-4">Signup</h1>
 
 	<!--myBody content-->
-	<div id="myContainer" class="container">
+	<div id="mainContainer" class="container">
 
 		<form id="signupform" class="form-horizontal" name="signupform" onsubmit="return false;">
 			<!--Username-->
 			<div class="form-group">
-				<div class="col-md-2">Username: </div>
-				<div class="col-md-4">
+				<div class="col-md-12">Username: </div>
+				<div class="col-md-12">
 					<input type="text" value="tumi" class="form-control" id="username" onblur="checkusername()" onkeyup="restrict('username')" maxlength="16"/>
 				</div>
-				<span class="col-md-3" id="unamestatus"></span>
+				<span class="col-md-12" id="unamestatus"></span>
 			</div>	
 
 			<!--First Name-->
 			<div class="form-group">
-				<div class="col-md-2">First Name: </div>
-				<div class="col-md-4">
+				<div class="col-md-12">First Name: </div>
+				<div class="col-md-12">
 					<input type="text" value="tumi" class="form-control" id="firstname" maxlength="16"/>
 				</div>
 			</div>
 
 			<!--Last Name-->
 			<div class="form-group">
-				<div class="col-md-2">Last Name: </div>
-				<div class="col-md-4">
+				<div class="col-md-12">Last Name: </div>
+				<div class="col-md-12">
 					<input type="text" value="tumi" class="form-control" id="lastname" maxlength="16"/>
 				</div>
 			</div>
 
 			<!--email-->
 			<div class="form-group">
-				<div class="col-md-2">EmailAddress: </div>
-				<div class="col-md-4">
+				<div class="col-md-12">EmailAddress: </div>
+				<div class="col-md-12">
 					<input type="text" value="tumi@gmail.com" class="form-control" id="email" onfocus="emptyElement('status')"  onkeyup="restrict('email')" maxlength="80">
 				</div>
 			</div>
 
 			<!--create password-->
 			<div class="form-group">
-				<div class="col-md-2">Password: </div>
-				<div class="col-md-4">
+				<div class="col-md-12">Password: </div>
+				<div class="col-md-12">
 					<input type="password" value="tumimapheto" class="form-control" id="pass1" onfocus="emptyElement('status')" onblur="checkpassword()" maxlength="16">
 				</div>
-				<span class="col-md-3" id="createpasswordStatus"></span>
+				<span class="col-md-12" id="createpasswordStatus"></span>
 			</div>
 
 			<!-- confirm passwrod -->
@@ -258,8 +246,8 @@ session_start();
 
 			<!--Gender-->
 			<div class="form-group">
-				<div class="col-md-2">Gender: </div>
-				<div class="col-md-4">
+				<div class="col-md-12">Gender: </div>
+				<div class="col-md-12">
 				<select id="gender" value="M" class="form-control" onfocus="emptyElement('status')">
 					<option></option>
 					<option value="m">Male</option>
@@ -270,8 +258,8 @@ session_start();
 
 			<!--country-->
 			<div class="form-group">
-				<div class="col-md-2">Select Country: </div>
-				<div class="col-md-4">
+				<div class="col-md-12">Select Country: </div>
+				<div class="col-md-12">
 					<select id="country" value="RSA" class="form-control" onfocus="emptyElement('status')">
 						<option></option>
 						<option value="South Africa">South Africa</option>
@@ -284,6 +272,8 @@ session_start();
 			<!--Button-->
 			<button id="signupbtn" class="btn btn-success" onclick="signup()"> Sign Up</button>
 
+			<br />
+			
 			<!--The status where data will be displayed-->
 			<span id="status"></span>
 		</form>

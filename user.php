@@ -196,6 +196,9 @@
 	        	<p>
 	        		<a href="">Sam</a> Sent you a new <a href="">Message</a>
 	        	</p>
+	        	<p>
+	        		<a href="">Sam</a> Sent you a new <a href="">SEEE</a>
+	        	</p>
 	        </div>
 	      </div>
 
@@ -209,7 +212,7 @@
 
 	
 
-	<?php include_once("templates/footer.php"); ?>
+	<?php //include_once("templates/footer.php"); ?>
 </body>
 </html>
 

@@ -4,6 +4,7 @@
 	  margin-bottom: 60px; /* Margin bottom by footer height */
 	}
 	.footer {
+		margin-top:40px;
 	  position: absolute;
 	  bottom: 0;
 	  width: 100%;
@@ -13,15 +14,15 @@
 	}
  </style>
 
- <footer class="footer">
+ <!-- <footer class="footer">
   <div class="container">
    		<h2 class="navbar-brand navbar pull-right">MacBaseChat</h2>
-		<!--<a class="navbar-btn btn-danger btn pull-right" id="navbb" href="#">Subscribe to my Youtube Channel</a>-->
+		<a class="navbar-btn btn-danger btn pull-right" id="navbb" href="#">Subscribe to my Youtube Channel</a>
 		<div class="navbar-text pull-left">
 			<p>Website designed and Written by <a href="https://macbase.co.za">Daniel Mamphekgo</a></p>
 		</div>	
   </div>
-</footer>
+</footer> -->
 
 <script type="text/javascript" src="js/jquerylibrary.js"></script>
 <script type="text/javascript" src="js/bootstrap.js"></script>
