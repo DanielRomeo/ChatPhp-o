@@ -63,22 +63,20 @@
 
 	/*______________________________________________________________________  status*/
 
-	// $tbl_status = "CREATE TABLE IF NOT EXISTS status(
-	// 	id INT(11) NOT NULL AUTO_INCREMENT,
-	// 	osid INT(11) NOT NULL,
-	// 	account_name VARCHAR(16) NOT NULL,
-	// 	type ENUM('a','b','c') NOT NULL,
-	// 	data TEXT NULL,
-	// 	postdate DATETIME NOT NULL,
-	// 	PRIMARY KEY(id)
-	// 	)";
+	$tbl_status = "CREATE TABLE IF NOT EXISTS status(
+		id INT(11) NOT NULL AUTO_INCREMENT,
+		message LONGTEXT NOT NULL,
+		uploadedby VARCHAR(255) NOT NULL,
+		uploaddate DATETIME NOT NULL,
+		PRIMARY KEY(id)
+		)";
 
-	// $query = mysqli_query($db_conx, $tbl_status);	
-	// if ($query === TRUE) {
-	// 	echo "STATUS TABLE Created  TRUE </br>";
-	// }else{
-	// 	echo "STATUS TABLE NOT CREATED FALSE </br>";
-	// }
+	$query = mysqli_query($db_conx, $tbl_status);	
+	if ($query === TRUE) {
+		echo "STATUS TABLE Created  TRUE </br>";
+	}else{
+		echo "STATUS TABLE NOT CREATED FALSE </br>";
+	}
 
 	/*______________________________________________________________________  photos*/
 

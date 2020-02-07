@@ -1,4 +1,7 @@
 <?php
+ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
 	include_once("includes/db_conx.php");
 	// 
 	// $u = "";
@@ -50,7 +53,30 @@
 <head>
 	<title>MacbaseChat:</title>
 	<?php include_once("templates/head.php"); ?>
+
+
+	<script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+		crossorigin="anonymous">
+	</script>
+
+
 	<link rel="stylesheet" type="text/css" href="css/user.css">
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+			var statusCount = 3;
+			$('#buttonLoadComments').on('click', function(){
+				statusCount = statusCount+2;
+				$('#status').load("loadStatus.php", {
+					statusNewCount: statusCount
+				});
+			});
+		});
+	</script>
+
 </head>
 <body>
 
@@ -65,6 +91,9 @@
 
         <!-- link that moves you to friends.php -->
         <a class="p-2 text-dark" href="friends.php?u=<?php echo $_SESSION['username'] ?>"> <i class="fas fa-user-friends"></i></a>
+
+        <!-- add status modal: -->
+        <a data-toggle="modal" data-target="#addStatusModal" class="p-2 text-dark" href="#">+</a>
 
         <!-- settings button that lets you  -->
         <!-- <a class="p-2 text-dark" href="#"><i class="fas fa-cog"></i></a> -->
@@ -125,10 +154,10 @@
 						<p>STATUSES</p>	
 						<p class="jumbotronNumber">119</p>
 					</div>	
-					<div class="col-md-4">
+					<!-- <div class="col-md-4">
 						<p>FRIENDS</p>	
 						<p class="jumbotronNumber">119</p>
-					</div>	
+					</div>	 -->
 					<div class="col-md-4">
 						<p>LAST LOGIN</p>	
 						<p class="jumbotronNumber">2020/08/03</p>
@@ -140,25 +169,55 @@
 
 		<div class="container">
 			<h1 class="display-6">STATUSES</h1>
+				<div style="margin-bottom:10px;" id="status" class="card">
+			
 
-			<div class="card">
-				<div class="card-body">
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				
-					<hr>
-				
-					<p>
-						<a id="likeStatusIcon" href=""> <i class="fas fa-thumbs-up"> </i> </a>200 &nbsp;&nbsp;
-						<a href=""> <i id="deleteStatusIcon" class="fas fa-trash-alt"></i>  </a>
-					</p>
+					<?php
+
+						$sql = "SELECT * FROM status LIMIT 3";
+						$query = mysqli_query($db_conx, $sql);
+						if(mysqli_num_rows($query) < 1){
+							echo "<p>There are no comments</p>";
+						}else{
+							while($row = mysqli_fetch_assoc($query)){
+								echo '
+									
+									<div class="card-body">
+										<p class="card-text">'.$row['message'].'</p>
+										<p class="card-text">uploaded on'.$row['uploaddate'].'</p>
+										<p>
+											<a id="likeStatusIcon" href=""> <i class="fas fa-thumbs-up"> </i> </a>200 &nbsp;&nbsp;
+											<a href=""> <i id="deleteStatusIcon" class="fas fa-trash-alt"></i>  </a>
+										</p>
+									</div>	
+								';
+							}
+						}
+					?>
 				</div>
+					
+			</div>
+
+			<br>
+
+			<button  id="buttonLoadComments" class="btn btn-dark">Load more comments</button>
+
+			<hr>
+			
+			<div class="container" style="width:800px;">
+				<form name="statusForm" method="POST" action="status.php">
+					<div class="col-md-8">
+						<textarea name="status" class="form-control"></textarea>	
+					</div>
+					<br />
+					<div class="col-md-4">
+						<button name="submitStatus" type="submit" class="btn btn-outline-primary btn-sm">Submit</button>
+					</div>
+				</form>
 			</div>
 		</div>
+
+		
 
 		
 	</div>
@@ -209,6 +268,9 @@
 	  </div>
 	</div>
 	<!-- end of Modal ------------------------------------------------------------------------ -->
+
+
+	
 
 	
 
