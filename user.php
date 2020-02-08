@@ -90,7 +90,7 @@ ini_set('display_errors', 1);
         <a data-toggle="modal" data-target="#exampleModalLong" class="p-2 text-dark" href="#"><i class="far fa-bell"></i></a>
 
         <!-- link that moves you to friends.php -->
-        <a class="p-2 text-dark" href="friends.php?u=<?php echo $_SESSION['username'] ?>"> <i class="fas fa-user-friends"></i></a>
+        <a class="p-2 text-dark" href="friends.php?u=<?php echo $_SESSION['username'] ?>"> <i class="fas fa-user-friends" data-toggle="tooltip" data-placement="bottom" title="View friends"></i></a>
 
         <!-- add status modal: -->
         <a data-toggle="modal" data-target="#addStatusModal" class="p-2 text-dark" href="#">+</a>
@@ -180,17 +180,30 @@ ini_set('display_errors', 1);
 							echo "<p>There are no comments</p>";
 						}else{
 							while($row = mysqli_fetch_assoc($query)){
-								echo '
+
+								// check if user owns page and show delete button. else dont show it.
+								if($_SESSION['username'] == $_GET['u']){
+									echo '
 									
-									<div class="card-body">
-										<p class="card-text">'.$row['message'].'</p>
-										<p class="card-text">uploaded on'.$row['uploaddate'].'</p>
-										<p>
-											<a id="likeStatusIcon" href=""> <i class="fas fa-thumbs-up"> </i> </a>200 &nbsp;&nbsp;
-											<a href=""> <i id="deleteStatusIcon" class="fas fa-trash-alt"></i>  </a>
-										</p>
-									</div>	
-								';
+										<div class="card-body">
+											<p class="card-text">'.$row['message'].'</p>
+											<p class="card-text">uploaded on'.$row['uploaddate'].'</p>
+											<p>
+												<a href="deleteStatus.php?s='.$row['id'].'"> <i id="deleteStatusIcon" class="fas fa-trash-alt"></i>  </a>
+											</p>
+										</div>	
+									';
+								}else{
+									echo '
+									
+										<div class="card-body">
+											<p class="card-text">'.$row['message'].'</p>
+											<p class="card-text">uploaded on'.$row['uploaddate'].'</p>
+										</div>	
+									';
+								}
+
+								
 							}
 						}
 					?>
