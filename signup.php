@@ -178,7 +178,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up</title>
+	<title>macbaseChat</title>
 	<link rel="stylesheet" type="text/css" href="css/signup.css">
 	<script type="text/javascript" src="js/signup.js"></script>
 	<?php include_once("templates/head.php"); ?>

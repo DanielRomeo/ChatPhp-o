@@ -72,7 +72,7 @@
 
 
 	<div class="container">
-		<h4 class="display-4">This is your page <?php echo $_SESSION['username']; ?></h4>
+		<h4 class="display-6">This is your feed <?php echo $_SESSION['username']; ?></h4>
 	</div>
 
 

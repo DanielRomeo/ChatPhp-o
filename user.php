@@ -51,7 +51,7 @@ ini_set('display_errors', 1);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MacbaseChat:</title>
+	<title>macbaseChat</title>
 	<?php include_once("templates/head.php"); ?>
 
 

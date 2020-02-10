@@ -88,7 +88,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MacBaseCHat-Login</title>
+	<title>macbaseChat</title>
 	<!---->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="js/main.js"></script>
