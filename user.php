@@ -45,6 +45,16 @@ ini_set('display_errors', 1);
 	$profileName = $query[1];
 	$firstName = $query[2];
 	$lastName = $query[3];
+	$lastlogin = $query[9];
+
+	// count how many statuse the user has:
+	$sql = "SELECT * FROM status WHERE uploadedby='$username' ";
+	$query = mysqli_query($db_conx, $sql);
+	$numberOfStatusForUser = mysqli_num_rows($query);
+
+	// get last login of user:
+
+
 
 ?>
 
@@ -72,6 +82,7 @@ ini_set('display_errors', 1);
 				statusCount = statusCount+2;
 				$('#status').load("loadStatus.php", {
 					statusNewCount: statusCount
+					//username: 
 				});
 			});
 		});
@@ -90,13 +101,13 @@ ini_set('display_errors', 1);
       	<a class="p-2 text-dark" href="feed.php"><i class="fas fa-rss-square" data-toggle="tooltip" data-placement="bottom" title="View Feed"></i></a>
 
       	<!-- notifications modal -->
-        <a data-toggle="modal" data-target="#exampleModalLong" class="p-2 text-dark" href="#"><i class="far fa-bell"></i></a>
+        <!-- <a data-toggle="modal" data-target="#exampleModalLong" class="p-2 text-dark" href="#"><i class="far fa-bell"></i></a> -->
 
         <!-- link that moves you to friends.php -->
-        <a class="p-2 text-dark" href="friends.php?u=<?php echo $_SESSION['username'] ?>"> <i class="fas fa-user-friends" data-toggle="tooltip" data-placement="bottom" title="View friends"></i></a>
+        <!-- <a class="p-2 text-dark" href="friends.php?u=<?php //echo $_SESSION['username'] ?>"> <i class="fas fa-user-friends" data-toggle="tooltip" data-placement="bottom" title="View friends"></i></a> -->
 
         <!-- add status modal: -->
-        <a data-toggle="modal" data-target="#addStatusModal" class="p-2 text-dark" href="#">+</a>
+        <!-- <a data-toggle="modal" data-target="#addStatusModal" class="p-2 text-dark" href="#">+</a> -->
 
         <!-- settings button that lets you  -->
         <!-- <a class="p-2 text-dark" href="#"><i class="fas fa-cog"></i></a> -->
@@ -155,7 +166,7 @@ ini_set('display_errors', 1);
 				<div id="statusesFriendsLastLogin" class="row">
 					<div class="col-md-4">
 						<p>STATUSES</p>	
-						<p class="jumbotronNumber">119</p>
+						<p class="jumbotronNumber"><?php echo $numberOfStatusForUser ?></p>
 					</div>	
 					<!-- <div class="col-md-4">
 						<p>FRIENDS</p>	
@@ -163,7 +174,7 @@ ini_set('display_errors', 1);
 					</div>	 -->
 					<div class="col-md-4">
 						<p>LAST LOGIN</p>	
-						<p class="jumbotronNumber">2020/08/03</p>
+						<p class="jumbotronNumber"><?php echo $lastlogin ?></p>
 					</div>	
 				</div>
 
@@ -177,7 +188,7 @@ ini_set('display_errors', 1);
 
 					<?php
 
-						$sql = "SELECT * FROM status LIMIT 3";
+						$sql = "SELECT * FROM status WHERE uploadedby='$username' LIMIT 3";
 						$query = mysqli_query($db_conx, $sql);
 						if(mysqli_num_rows($query) < 1){
 							echo "<p>There are no comments</p>";
@@ -218,19 +229,31 @@ ini_set('display_errors', 1);
 
 			<button  id="buttonLoadComments" class="btn btn-dark">Load more comments</button>
 
-			<hr>
+
+			<?php
+
+				// check if logged in as page owner, else dont show the CREATE STATUS:
+
+				if($_SESSION['username'] == $_GET['u']){
+					echo '<hr>
 			
-			<div class="container" style="width:800px;">
-				<form name="statusForm" method="POST" action="status.php">
-					<div class="col-md-8">
-						<textarea name="status" class="form-control"></textarea>	
-					</div>
-					<br />
-					<div class="col-md-4">
-						<button name="submitStatus" type="submit" class="btn btn-outline-primary btn-sm">Submit</button>
-					</div>
-				</form>
-			</div>
+						<div class="container" style="width:800px;">
+							<form name="statusForm" method="POST" action="status.php">
+								<div class="col-md-8">
+									<textarea name="status" class="form-control"></textarea>	
+								</div>
+								<br />
+								<div class="col-md-4">
+									<button name="submitStatus" type="submit" class="btn btn-outline-primary btn-sm">Submit</button>
+								</div>
+							</form>
+						</div>';
+				}else if($_SESSION['username'] != $_GET['u']){ /* if its not a friend but some random person*/
+					echo '';
+				}
+
+			?>
+			
 		</div>
 
 		

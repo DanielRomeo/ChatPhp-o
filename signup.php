@@ -78,7 +78,7 @@ session_start();
 <?php 
  	// ajax calls this REGISTRATION CODE:
  	if (isset($_POST["u"])) {
- 		echo "everything is running smoothly";
+ 		//echo "everything is running smoothly";
  		include_once("includes/db_conx.php");
  		// Gather posted data into the local variable:
  		$fn = preg_replace('#[^a-z0-9]#i', '', $_POST['fn']);
@@ -108,7 +108,7 @@ session_start();
 
  		
 		if ($u_check > 0) {
-			echo "The Username you entered is already taken";
+			echo "The Username you entered is already taken, try anoter one.";
 			exit();
 		}else if ($e_check > 0) {
 			echo "That email address is already in the system.";
@@ -124,7 +124,7 @@ session_start();
 			// Begin inserting into the database:
 			//$p_hash = md5($p);
 
-			echo $fn.' '.$ln.' '.$u.' '.$e.' '.$p.' '. $g. ' '.$c .'   ';
+			//echo $fn.' '.$ln.' '.$u.' '.$e.' '.$p.' '. $g. ' '.$c .'   ';
 
 			// Add user info into the database for the main site table:
 			$sql = "INSERT INTO users (firstname, lastname, username, email, password, gender, country, activated, lastlogin) VALUES('$fn', '$ln', '$u','$e','$p','$g','$c', '1', '$ll')";
@@ -154,9 +154,7 @@ session_start();
 			setcookie('username', $db_username, strtotime( '+30 days' ), "/", "", "", TRUE);
 			setcookie('password', $db_pass_str, strtotime( '+30 days' ), "/", "", "", TRUE);
 
-
-			header('Location: login.php');
-			exit;
+			
 			// Create a Directory(folder) to hold each users files:
 			// i still have to give php permisssions to be able to create and write to directories:
 			// if (!file_exists("user/$u")) {
@@ -164,14 +162,18 @@ session_start();
 			// }
 
 
-			//echo "<h3>Signup successful, now <a href='Login.php'>Click here</a> to login </h3>";
-			// header('Location, users.php?u=." $u" ');
+			echo "<h3 style='color: purple;'>Signup successful, now <a href='login.php'>Click here</a> to login </h3>";
+			header('Location, users.php');
+
+			// cleaar the signup form:
+			
 
 
 			exit();
 
 		}	
-		exit();
+		//exit();
+		//header('Location: login.php');
  	}
 ?>
 
@@ -182,11 +184,21 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/signup.css">
 	<script type="text/javascript" src="js/signup.js"></script>
 	<?php include_once("templates/head.php"); ?>
+	<style type="text/css">
+		body{
+			background: #ededed;
+		}
+	</style>
 </head>
 <body>
 
 	<!-- mini header -->
-	<h1 class="display-4">Signup</h1>
+	<div class="container" align="center">
+		<h3 class="display-6">Signup</h3>	
+		<p>If you already have an account, you can login <a href="login.php">here</a></p>
+	</div>
+
+	
 
 	<!--myBody content-->
 	<div id="mainContainer" class="container">
@@ -270,8 +282,9 @@ session_start();
 			</div>
 
 			<!--Button-->
-			<button id="signupbtn" class="btn btn-success" onclick="signup()"> Sign Up</button>
+			<button style="background: purple;" id="signupbtn" class="btn btn-success" onclick="signup()"> Sign Up</button>
 
+			<br />
 			<br />
 			
 			<!--The status where data will be displayed-->

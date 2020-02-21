@@ -24,9 +24,10 @@ session_start();
 			echo $responseMessage = "Couldn't Add a post!";
       		echo("Error description: " . mysqli_error($db_conx));
 		}
-
+		echo "oo";
+		header("Location: login.php");
 	}
 
-	header("Location : user.php?u=".$loggedUser." ");
+	header("Location: login.php");
 
 ?>

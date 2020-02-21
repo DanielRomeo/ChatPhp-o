@@ -17,5 +17,6 @@
       		echo("Error description: " . mysqli_error($db_conx));
 		}
 	} 
+	header('Location: login.php');
 
 ?>
