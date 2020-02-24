@@ -208,7 +208,7 @@ session_start();
 			<div class="form-group">
 				<div class="col-md-12">Username: </div>
 				<div class="col-md-12">
-					<input type="text" value="tumi" class="form-control" id="username" onblur="checkusername()" onkeyup="restrict('username')" maxlength="16"/>
+					<input type="text"  class="form-control" id="username" onblur="checkusername()" onkeyup="restrict('username')" maxlength="16"/>
 				</div>
 				<span class="col-md-12" id="unamestatus"></span>
 			</div>	
@@ -217,7 +217,7 @@ session_start();
 			<div class="form-group">
 				<div class="col-md-12">First Name: </div>
 				<div class="col-md-12">
-					<input type="text" value="tumi" class="form-control" id="firstname" maxlength="16"/>
+					<input type="text"  class="form-control" id="firstname" maxlength="16"/>
 				</div>
 			</div>
 
@@ -225,7 +225,7 @@ session_start();
 			<div class="form-group">
 				<div class="col-md-12">Last Name: </div>
 				<div class="col-md-12">
-					<input type="text" value="tumi" class="form-control" id="lastname" maxlength="16"/>
+					<input type="text"  class="form-control" id="lastname" maxlength="16"/>
 				</div>
 			</div>
 
@@ -233,7 +233,7 @@ session_start();
 			<div class="form-group">
 				<div class="col-md-12">EmailAddress: </div>
 				<div class="col-md-12">
-					<input type="text" value="tumi@gmail.com" class="form-control" id="email" onfocus="emptyElement('status')"  onkeyup="restrict('email')" maxlength="80">
+					<input type="text"  class="form-control" id="email" onfocus="emptyElement('status')"  onkeyup="restrict('email')" maxlength="80">
 				</div>
 			</div>
 
@@ -241,7 +241,7 @@ session_start();
 			<div class="form-group">
 				<div class="col-md-12">Password: </div>
 				<div class="col-md-12">
-					<input type="password" value="tumimapheto" class="form-control" id="pass1" onfocus="emptyElement('status')" onblur="checkpassword()" maxlength="16">
+					<input type="password"  class="form-control" id="pass1" onfocus="emptyElement('status')" onblur="checkpassword()" maxlength="16">
 				</div>
 				<span class="col-md-12" id="createpasswordStatus"></span>
 			</div>
@@ -260,7 +260,7 @@ session_start();
 			<div class="form-group">
 				<div class="col-md-12">Gender: </div>
 				<div class="col-md-12">
-				<select id="gender" value="M" class="form-control" onfocus="emptyElement('status')">
+				<select id="gender"  class="form-control" onfocus="emptyElement('status')">
 					<option></option>
 					<option value="m">Male</option>
 					<option value="f">Female</option>
@@ -272,7 +272,7 @@ session_start();
 			<div class="form-group">
 				<div class="col-md-12">Select Country: </div>
 				<div class="col-md-12">
-					<select id="country" value="RSA" class="form-control" onfocus="emptyElement('status')">
+					<select id="country"  class="form-control" onfocus="emptyElement('status')">
 						<option></option>
 						<option value="South Africa">South Africa</option>
 						<option value="Zimbabwe">Zimbabwe</option>
