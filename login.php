@@ -68,9 +68,12 @@
 				setcookie('password', $db_pass_str, strtotime( '+30 days' ), "/", "", "", TRUE);
 
 				//update their ip and last login times:
-				// $sql = "UPDATE users SET ip='$ip', lastlogin=now(), WHERE username='$db_username'  ";
-				// $query = mysqli_query($db_conx, $sql);
+				$date = date('Y/m/d H:i:s');
 				$username = $_SESSION['username'];
+
+				$sql = "UPDATE users SET  lastlogin='$date' WHERE username='$username'  ";
+				$query = mysqli_query($db_conx, $sql);
+
 				header('Location, users.php?u=." $username" ');
 
 				exit();

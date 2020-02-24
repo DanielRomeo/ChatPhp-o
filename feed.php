@@ -49,20 +49,13 @@
 		<h5 class="my-0 mr-md-auto font-weight-normal">Hello <?php echo $firstName.' '.$lastName; ?></h5>
 		<nav class="my-2 my-md-0 mr-md-3">
 
-			<!-- rss feed notification -->
-			<a class="p-2 text-dark" href="feed.php"><i class="fas fa-rss-square" data-toggle="tooltip" data-placement="bottom" title="View Feed"></i></a>
+		<!-- rss feed notification -->
+		<a class="p-2 text-dark" href="feed.php"><i class="fas fa-rss-square" data-toggle="tooltip" data-placement="bottom" title="View Feed"></i></a>
 
-			<!-- notifications modal -->
-		<a data-toggle="modal" data-target="#exampleModalLong" class="p-2 text-dark" href="#"><i class="far fa-bell"></i></a>
+			
 
-		<!-- link that moves you to friends.php -->
-		<a class="p-2 text-dark" href="friends.php?u=<?php echo $_SESSION['username'] ?>"> <i class="fas fa-user-friends" data-toggle="tooltip" data-placement="bottom" title="View friends"></i></a>
-
-		<!-- add status modal: -->
-		<a data-toggle="modal" data-target="#addStatusModal" class="p-2 text-dark" href="#">+</a>
-
-		<!-- settings button that lets you  -->
-		<!-- <a class="p-2 text-dark" href="#"><i class="fas fa-cog"></i></a> -->
+		<!-- the home button -->
+		<a class="p-2 text-dark" href="user.php?u=<?php echo $_SESSION['username'] ?>"> <i class="fas fa-home"></i></a>
 		</nav>
 
 		<a class="btn btn-outline-primary" href="logout.php">Logout</a>

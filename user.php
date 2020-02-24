@@ -3,16 +3,6 @@ ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	include_once("includes/db_conx.php");
-	// 
-	// $u = "";
-	// $sex = "Male";
-	// $userlevel = "";
-	// $profile_pic = "";
-	// $profile_pic_btn = "";
-	// $avatar_form = "";
-	// $country = "";
-	// $joindate = "";
-	// $lastsession = "";
 
 	session_start();
 
@@ -45,14 +35,14 @@ ini_set('display_errors', 1);
 	$profileName = $query[1];
 	$firstName = $query[2];
 	$lastName = $query[3];
-	$lastlogin = $query[9];
+	$bio = $query[9];
+	$lastlogin = $query[10];
 
 	// count how many statuse the user has:
 	$sql = "SELECT * FROM status WHERE uploadedby='$username' ";
 	$query = mysqli_query($db_conx, $sql);
 	$numberOfStatusForUser = mysqli_num_rows($query);
 
-	// get last login of user:
 
 
 
@@ -139,7 +129,7 @@ ini_set('display_errors', 1);
 							// render the profile button but make sure the right button is rendered
 
 							if($_SESSION['username'] == $_GET['u']){
-								echo '<a id="profileButton" href="" class="btn btn-primary">Edit Profile</a>';
+								echo '<a id="profileButton" href="editprofile.php?u='.$username.'" class="btn btn-primary">Edit Profile</a>';
 							}else if($_SESSION['username'] != $_GET['u']){ /* if its not a friend but some random person*/
 								echo '<a id="profileButton" href="" class="btn btn-outline-dark">Send Friend Request</a>';
 							}
@@ -149,12 +139,19 @@ ini_set('display_errors', 1);
 						<br /> <br>
 
 						<!-- here goes the bio -->
-						<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p class="card-text">
+							<?php  
+
+								if($bio == NULL){
+									echo "NO BIO";	
+								}else{
+									echo $bio;
+								}
+
+
+							?>
+
+						</p>
 					</div>
 				</div> <!-- end of row-->
 

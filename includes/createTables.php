@@ -14,6 +14,7 @@
 		gender ENUM('m','f') NOT NULL,
 		country VARCHAR(255) NOT NULL,
 		activated ENUM('0','1') NOT NULL DEFAULT '0',
+		bio TEXT NULL,
 		lastlogin DATETIME NOT NULL,
 		PRIMARY KEY(id),
 		UNIQUE KEY username (username, email)
