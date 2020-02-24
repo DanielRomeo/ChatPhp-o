@@ -165,7 +165,7 @@
 		<button id="loginbtn" onclick="login();" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 		<p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 		<br>
-		<p>Please refresh the page after logging in.(Its a bug, ill fix it soon)</p>
+		<p>If you already Don't have an account, <a href="signup.php">Signup Here</a></p>
 	</form>
 		
 
